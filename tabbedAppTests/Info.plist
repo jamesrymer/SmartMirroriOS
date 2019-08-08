@@ -18,5 +18,12 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+  &lt;!--Include to allow all connections (DANGER)--&gt;
+  &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+      &lt;true/&gt;
+&lt;/dict&gt;</string>
 </dict>
 </plist>

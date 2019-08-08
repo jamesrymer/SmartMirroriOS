@@ -15,6 +15,12 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet var linkButton: UIButton!
+    
+    @IBAction func linkButtonClicked(_ sender: UIButton) {
+        if let url = URL(string: "https://developers.google.com/calendar/quickstart/js") {
+            UIApplication.shared.open(url)
+        }
+    }
 }
 
