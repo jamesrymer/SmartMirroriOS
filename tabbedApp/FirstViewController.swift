@@ -130,9 +130,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate{
                 if error == nil {
                     
                     do {
-                        // make sure this JSON is in the format we expect
                         if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
-                            // try to read out a string array
                             self.setTextFieledValues(json: json)
                         }
                     } catch let error as NSError {
@@ -185,13 +183,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate{
     @IBAction func saveMirrorButtonTap(_ sender: UIButton) {
         
         let fileName = "mirrorSettings"
-        let dir = try? FileManager.default.url(for: .documentDirectory,
-                                               in: .userDomainMask, appropriateFor: nil, create: true)
-        
-        // If the directory was found, we write a file to it and read it back
+        let dir = try? FileManager.default.url(for: .documentDirectory,  in: .userDomainMask, appropriateFor: nil, create: true)
         if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("txt") {
             
-            // Write to the file named Test
             let outString = mirrorID.text! + "," + mirrorPin.text!
             do {
                 try outString.write(to: fileURL, atomically: true, encoding: .utf8)
@@ -224,6 +218,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate{
     }
     
     /**
+     * Function from https://www.agnosticdev.com/content/how-use-commoncrypto-apis-swift-5
      * Example SHA 256 Hash using CommonCrypto
      * CC_SHA256 API exposed from from CommonCrypto-60118.50.1:
      * https://opensource.apple.com/source/CommonCrypto/CommonCrypto-60118.50.1/include/CommonDigest.h.auto.html
